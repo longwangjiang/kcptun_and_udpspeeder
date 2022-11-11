@@ -8,7 +8,7 @@
 kcptun服务端监听：手动指定
 udpspeeder服务端监听：手动指定
 #### 第一步
-yum install -y wget && wget https://raw.githubusercontent.com/yobabyshark/kcptun_and_udpspeeder/master/mix_install.sh && chmod +x mix_install.sh && ./mix_install.sh
+yum install -y wget && wget https://raw.githubusercontent.com/longwangjiang/kcptun_and_udpspeeder/master/mix_install.sh && chmod +x mix_install.sh && ./mix_install.sh
 
 安装过程中需要输入服务器代理软件监听的端口。
 #### 第二步
