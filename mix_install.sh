@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #    "========================="
-#    " 介绍：适用于CentOS7"
+#    " 介绍：适用于Debian"
 #    " 修改：longwangjiang"
 #    " 原作者：atrandys"
 #    "========================="
@@ -9,7 +9,7 @@
 #开始
 echo
 echo "========================="
-echo " 介绍：适用于CentOS7"
+echo " 介绍：适用于Debian"
 echo " 修改：longwangjiang"
 echo " 原作者：atrandys"
 echo "========================="
@@ -52,9 +52,9 @@ nohup ./speederv2_amd64 -s -l0.0.0.0:$udpspeederport -r127.0.0.1:$port -k "longw
 nohup ./server_linux_amd64 -c ./kcptun_server.json >kcptun.log 2>&1 &
 
 #写入开机自启
-myfile="/etc/rc.d/init.d/kcpandudp"
+myfile="/root/kcpandudp"
 if [ ! -f "$myfile" ]; then
-cat > /etc/rc.d/init.d/kcpandudp<<-EOF
+cat > /root/kcpandudp<<-EOF
 #!/bin/sh
 #chkconfig: 2345 80 90
 #description:kcpandudp
@@ -63,11 +63,11 @@ nohup ./speederv2_amd64 -s -l0.0.0.0:$udpspeederport -r127.0.0.1:$port -k "longw
 nohup ./server_linux_amd64 -c ./kcptun_server.json >kcptun.log 2>&1 &
 EOF
 
-chmod +x /etc/rc.d/init.d/kcpandudp
-chkconfig --add kcpandudp
-chkconfig kcpandudp on
+chmod +x /root/kcpandudp
+apt-get install sysv-rc-conf -y
+sysv-rc-conf kcpandudp on
 else 
-cat >> /etc/rc.d/init.d/kcpandudp<<-EOF
+cat >> /root/kcpandudp<<-EOF
 cd /usr/src/$yourdir
 nohup ./speederv2_amd64 -s -l0.0.0.0:$udpspeederport -r127.0.0.1:$port -k "longwangjiang" -f2:4 --mode 0 -q1 >speeder.log 2>&1 &
 nohup ./server_linux_amd64 -c ./kcptun_server.json >kcptun.log 2>&1 &
