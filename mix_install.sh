@@ -52,9 +52,9 @@ nohup ./speederv2_amd64 -s -l0.0.0.0:$udpspeederport -r127.0.0.1:$port -k "longw
 nohup ./server_linux_amd64 -c ./kcptun_server.json >kcptun.log 2>&1 &
 
 #写入开机自启
-myfile="/root/kcpandudp"
+myfile="/etc/init.d/kcpandudp.sh"
 if [ ! -f "$myfile" ]; then
-cat > /root/kcpandudp<<-EOF
+cat > /etc/init.d/kcpandudp.sh<<-EOF
 #!/bin/sh
 #chkconfig: 2345 80 90
 #description:kcpandudp
@@ -63,11 +63,12 @@ nohup ./speederv2_amd64 -s -l0.0.0.0:$udpspeederport -r127.0.0.1:$port -k "longw
 nohup ./server_linux_amd64 -c ./kcptun_server.json >kcptun.log 2>&1 &
 EOF
 
-chmod +x /root/kcpandudp
+update-rc.d kcpandudp.sh defaults
+chmod +x /etc/init.d/kcpandudp.sh
 apt-get install sysv-rc-conf -y
 sysv-rc-conf kcpandudp on
 else 
-cat >> /root/kcpandudp<<-EOF
+cat >> /etc/init.d/kcpandudp.sh<<-EOF
 cd /usr/src/$yourdir
 nohup ./speederv2_amd64 -s -l0.0.0.0:$udpspeederport -r127.0.0.1:$port -k "longwangjiang" -f2:4 --mode 0 -q1 >speeder.log 2>&1 &
 nohup ./server_linux_amd64 -c ./kcptun_server.json >kcptun.log 2>&1 &
