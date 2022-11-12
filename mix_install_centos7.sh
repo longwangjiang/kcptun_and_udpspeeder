@@ -25,6 +25,8 @@ read -p "请输入数字:" udpspeederport
 mkdir /usr/src/$yourdir
 mkdir /usr/src/$yourdir/client
 cd /usr/src/$yourdir/client
+wget https://raw.githubusercontent.com/longwangjiang/kcptun_and_udpspeeder/master/client_windows_amd64.exe
+wget https://raw.githubusercontent.com/longwangjiang/kcptun_and_udpspeeder/master/speederv2.exe
 wget https://raw.githubusercontent.com/longwangjiang/kcptun_and_udpspeeder/master/start.bat
 wget https://raw.githubusercontent.com/longwangjiang/kcptun_and_udpspeeder/master/stop.bat
 wget https://raw.githubusercontent.com/longwangjiang/kcptun_and_udpspeeder/master/kcptun_client.json
