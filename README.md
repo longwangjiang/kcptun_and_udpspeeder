@@ -18,14 +18,12 @@ yum install -y wget && wget https://raw.githubusercontent.com/longwangjiang/kcpt
 ```
 安装过程中需要输入服务器代理软件监听的端口。
 #### 第二步
-ftp连接服务器，进入/usr/src/game/client目录，将其中的文件下载到电脑。
+ftp连接服务器，进入/usr/src/game/client目录，将整个client目录下载到电脑，运行start.bat就可以正常使用了。
 ### 客户端
 客户端也制作了bat脚本，start.bat、stop.bat，分别在开启时使用和关闭时使用。
 udpspeeder和kcptun客户端监听同一个端口9898，此时tcp会进入kcptun隧道，udp会进入udpspeeder隧道。
 
-#### 配置客户端
-下载speederv2.exe和client_windows_amd64.exe，和服务端下载的三个文件存放在一个文件夹，运行start.bat即可。
 ### 搭配其他软件
 这里我们只部署kcptun的加速隧道、udpspeeder的加速隧道，需要你在通道两端自行串联软件，软件要支持tcp/udp传输。
 
-一个例子：客户端使用sstap、sockscap等软件，指向ss客户端，ss客户端指向本地9898端口（kcptun和udpspeeder客户端监听端口），服务端kcptun和udpspeeder指向ss服务端监听端口。
+一个例子：客户端使用v2ray,sstap、sockscap等软件，指向ss客户端，ss客户端指向本地9898端口（kcptun和udpspeeder客户端监听端口），服务端kcptun和udpspeeder指向ss服务端监听端口。
