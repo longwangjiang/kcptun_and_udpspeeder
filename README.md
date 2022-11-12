@@ -18,7 +18,7 @@ yum install -y wget && wget https://raw.githubusercontent.com/longwangjiang/kcpt
 ```
 安装过程中需要输入服务器代理软件监听的端口。
 #### 第二步
-ftp连接服务器，进入/usr/src/game/client目录，将整个client目录下载到电脑，运行start.bat就可以正常使用了。
+ftp连接服务器，进入/usr/src/你建立的目录/client目录，将整个client目录下载到电脑，运行start.bat就可以正常使用了。
 ### 客户端
 客户端也制作了bat脚本，start.bat、stop.bat，分别在开启时使用和关闭时使用。
 udpspeeder和kcptun客户端监听同一个端口9898，此时tcp会进入kcptun隧道，udp会进入udpspeeder隧道。
